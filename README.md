@@ -614,7 +614,173 @@ php myscript.php
 ##### 100: What is the role of the lambda function used in PHP?
 In PHP, a lambda function (also known as an anonymous function) is a small, anonymous function that can be used as an argument to higher-order functions or assigned to variables. It is typically used for short, simple operations where defining a full function is unnecessary. Lambda functions can be created using the fn keyword (available in PHP 7.4 and later) or by using function(). They are often used in array functions like `array_map()`, `array_filter()`, and `usort()`. Lambda functions provide a more concise way to define functions on the fly without explicitly naming them.
 
+##### 101: What do you mean by object-oriented programming?
+Object-oriented programming (OOP) is a programming paradigm that uses objects, which are instances of classes, to structure and organize code. In OOP, the key concepts are classes and objects. Classes define the blueprint for creating objects, and objects are instances of classes that encapsulate data and behavior (methods). OOP promotes the principles of encapsulation, inheritance, and polymorphism to create modular, reusable, and maintainable code.
 
+##### 102: What are the characteristics of OOPs?
+The characteristics of object-oriented programming (OOP) include:
+- `Encapsulation`: This refers to the bundling of data (attributes or properties) and methods (functions) that operate on the data into a single unit called a class. Objects of the class can access and manipulate the data through defined interfaces.
+- `Inheritance`: Inheritance allows a class (subclass or derived class) to inherit properties and behaviors from another class (superclass or base class). It promotes code reuse and hierarchy.
+- `Polymorphism`: Polymorphism enables objects of different classes to be treated as objects of a common superclass. It allows for method overriding and dynamic method dispatch, making code more flexible.
+- `Abstraction`: Abstraction is the process of simplifying complex reality by modeling classes based on essential properties and behaviors while hiding unnecessary details.
+- `Modularity`: OOP promotes the creation of self-contained modules (classes) that can be developed and maintained independently, enhancing code modularity and reusability.
+
+
+
+##### 103: What is a class and object?
+- Class: A class is like a blueprint or template for creating objects. It defines the structure and behavior of objects.
+- Object: An object is an instance of a class. It is a concrete realization of the class's blueprint, with its own data and behavior.
+
+##### 104: What do you mean by Inheritance?
+Inheritance is when a class (subclass) can inherit properties and behaviors from another class (superclass). It promotes code reusability and hierarchy.
+
+
+##### 105: What is Polymorphism?
+Polymorphism allows objects of different classes to be treated as objects of a common superclass, enabling flexibility and dynamic behavior.
+
+
+##### 106: How is the static keyword used in the program?
+The `static` keyword is used to define class-level variables and methods that belong to the class itself, not to instances of the class.
+
+##### 107:  Name the types of constructors.
+There are two types of constructors:
+- Default Constructor (No-Argument Constructor)
+- Parameterized Constructor (accepts arguments)
+
+##### 108: What do PHP namespaces mean?
+PHP namespaces are used to organize code elements (classes, functions, constants) into logical groups, preventing naming conflicts and improving code organization.
+
+
+##### 109: Describe the types of access modifiers in PHP.
+PHP has three main access modifiers:
+- Public: Accessible from anywhere.
+- Protected: Accessible within the class and its subclasses.
+- Private: Accessible only within the class.
+
+##### 110: Is operator overloading supported by PHP?
+PHP does not support operator overloading, which means you can't define custom behaviors for operators like + or - for your classes.
+
+
+##### 111: What is the difference between encapsulation and abstraction?
+- Encapsulation: Protecting data and controlling access to it within a class.
+- Abstraction: Simplifying complex systems by focusing on essential features and ignoring unnecessary details.
+
+##### 112: What is the purpose of the yield keyword in PHP?
+The `yield` keyword in PHP is used to create generators, allowing you to iterate over large data sets efficiently by pausing and resuming a function's execution to save memory and processing time.
+
+##### 113: What are the types of Polymorphism?
+There are two main types of polymorphism in OOP:
+- Compile-time (Static) Polymorphism: This is achieved through method overloading and operator overloading. Method overloading is when a class has multiple methods with the same name but different parameters. The correct method to call is determined at compile time based on the method's signature.
+- Runtime (Dynamic) Polymorphism: This is achieved through method overriding. Method overriding occurs when a subclass provides a specific implementation for a method that is already defined in its superclass. The correct method to call is determined at runtime based on the actual object's type.
+
+
+##### 114: What is the use of traits in PHP?
+Traits in PHP allow you to reuse code in multiple classes without inheritance. Traits provide a mechanism for code reuse and composition by allowing the inclusion of methods and properties from a trait into a class. This is useful when multiple classes need to share common functionality, but you want to avoid the limitations of single inheritance.
+
+
+##### 115: What is the use of the finalize method?
+The `finalize` method is not a standard method in PHP or most modern programming languages. It may be a concept from older languages like Java, where it was used for resource cleanup and is related to garbage collection. In modern PHP, resource management is typically handled automatically by the language, and you don't need a `finalize` method.
+
+##### 116: Explain Polymorphism with the help of an example.
+Polymorphism is best explained through an example of method overriding, which demonstrates runtime polymorphism. Consider a class hierarchy with a base class `Shape` and two subclasses, `Circle` and `Rectangle`. All of them have a calculateArea method. When you call calculateArea on a Shape object, the specific version of the method in the actual subclass will be executed.
+```php
+class Shape {
+    public function calculateArea() {
+        // Common code for all shapes
+    }
+}
+
+class Circle extends Shape {
+    public function calculateArea() {
+        // Calculate area specific to a circle
+    }
+}
+
+class Rectangle extends Shape {
+    public function calculateArea() {
+        // Calculate area specific to a rectangle
+    }
+}
+
+$circle = new Circle();
+$rectangle = new Rectangle();
+
+echo $circle->calculateArea();    // Calls the Circle's method
+echo $rectangle->calculateArea(); // Calls the Rectangle's method
+```
+This demonstrates polymorphism because the same method name is used, but the actual behavior is determined by the type of the object.
+
+
+
+##### 117: What is the use of the final keyword in PHP?
+The `final` keyword in PHP is used to restrict the inheritance and overriding of methods and classes. When you declare a class or method as final, it means that it cannot be extended or overridden by any subclass. It's used to prevent further modification or specialization of a class or method.
+
+
+
+##### 118:  What is Interface in PHP?
+An interface in PHP defines a contract that a class must adhere to. It specifies a set of method signatures that a class implementing the interface must provide. Interfaces provide a way to achieve abstraction and ensure that classes follow a certain structure without specifying the implementation details. A class can implement multiple interfaces, enabling it to define multiple contracts.
+
+
+##### 119:  What is method overloading and how do you use it in PHP OOPs?
+Method overloading in PHP allows you to define multiple methods with the same name but different parameters in a class. PHP does not support traditional method overloading as seen in some other languages. Instead, the latest defined method with a particular name and set of parameters will be the one used. It's more about method replacement than overloading. You can achieve similar behavior by using default parameter values or variable-length argument lists (variadic functions) in your methods.
+
+
+##### 120: What is hybrid inheritance?
+Hybrid inheritance is a combination of different types of inheritance, typically involving multiple inheritance (a class inheriting from more than one class) and hierarchical inheritance (a class with multiple subclasses). While some languages support hybrid inheritance, PHP does not directly support multiple inheritance, so achieving hybrid inheritance may require using interfaces and composition.
+
+
+##### 121: What is static polymorphism?
+Static polymorphism, also known as compile-time polymorphism, is achieved through method overloading or operator overloading. The correct method or operator to use is determined at compile time based on the method or operator signature.
+
+
+##### 122: What is dynamic polymorphism?
+Dynamic polymorphism, also known as runtime polymorphism, is achieved through method overriding. The correct method to call is determined at runtime based on the actual object's type, allowing objects of different classes to be treated as objects of a common superclass.
+
+##### 123: Differentiate between overloading and overriding.
+- **Method Overloading**: Method overloading involves having multiple methods with the same name in a class, but with different parameters. The correct method to call is determined at compile time based on the method's signature. It is a form of compile-time (static) polymorphism.
+- **Method Overriding**: Method overriding occurs when a subclass provides a specific implementation for a method that is already defined in its superclass. The correct method to call is determined at runtime based on the actual object's type. It is a form of runtime (dynamic) polymorphism.
+
+
+##### 124: What is data abstraction?
+Data abstraction is the process of simplifying complex systems by modeling classes based on essential properties and behaviors while hiding unnecessary details. It allows you to focus on the high-level structure of data and operations without getting into the specifics of how data is stored or processed. Data abstraction is a key concept in object-oriented programming, and it promotes modularity and maintainability.
+
+
+##### 125:  How to achieve data abstraction?
+Data abstraction can be achieved through the use of classes and objects in object-oriented programming. You create classes that represent abstract data types, define the public interface (methods) that should be accessible, and hide the internal details (private properties and methods). By doing this, you encapsulate the data and provide a way for other code to interact with the data only through well-defined, abstract methods.
+
+
+##### 126: Differentiate between data abstraction and encapsulation.
+- **Data Abstraction**: Data abstraction is about simplifying complex systems by defining high-level structures, focusing on what data and operations are needed, and ignoring unnecessary details. It is a broader concept that includes encapsulation.
+- **Encapsulation**: Encapsulation, on the other hand, is one of the techniques used to achieve data abstraction. It involves bundling the data (attributes) and methods that operate on the data into a single unit (a class) and controlling access to that data. Encapsulation is a specific way to implement data abstraction.
+
+
+##### 127: What is the difference between OOP and SOP?
+- **OOP (Object-Oriented Programming):** OOP is a programming paradigm that uses objects and classes to structure and organize code. It promotes concepts like encapsulation, inheritance, and polymorphism, making it easier to create modular, reusable, and maintainable code.
+- **SOP (Structured or Procedural Programming):** SOP is a programming paradigm that uses procedures or functions to organize code. It is based on a top-down approach where the code is structured around procedures that perform specific tasks. It does not emphasize the use of objects and classes.
+
+The main difference is the approach to structuring code. OOP focuses on objects and their interactions, while SOP organizes code around procedures or functions.
+
+
+##### 128: What is the difference between dependency injection and factory design pattern?
+- Dependency Injection (DI): Dependency injection is a design pattern that focuses on providing a class with its dependencies (usually other objects or services) from the outside, rather than having the class create its dependencies. It promotes loose coupling between classes, making them more modular and easier to test.
+- Factory Design Pattern: The Factory Design Pattern is used to create objects without specifying the exact class of object to be created. It provides a method (the factory method) for creating objects of a particular class or its subclasses. This pattern allows you to abstract the process of object creation.
+
+
+The key difference is that DI is about providing dependencies to a class, while the Factory Design Pattern is about creating objects without necessarily knowing their concrete types.
+
+
+##### 129: What libraries would be useful for OOP development in PHP?
+For OOP development in PHP, you can consider using various libraries and frameworks, depending on your project requirements. Some popular libraries and frameworks that promote OOP principles in PHP development include:
+- Symfony: A high-performance PHP framework that encourages the use of OOP and provides a wide range of components for various tasks.
+- Laravel: A popular PHP framework that utilizes OOP principles for building web applications. It includes an elegant and expressive syntax.
+- Doctrine: An Object-Relational Mapping (ORM) library for PHP that allows you to work with databases using OOP concepts.
+- Composer: While not a library, Composer is a dependency management tool that helps you install and autoload PHP libraries in your OOP projects.
+- PHPStan: A static analysis tool for PHP that helps ensure type safety and adherence to OOP principles.
+- PHPUnit: A testing framework for PHP that facilitates unit testing in an object-oriented context.
+
+
+##### 130: If a class inherits two methods with the same name from its parent class and both have the same number of parameters, then what happens when you try to instantiate this class?
+If a class inherits two methods with the same name from its parent class, and both methods have the same number of parameters, the behavior can vary depending on the programming language and how it handles method resolution. In some languages, the method from the most specific subclass is called, while in others, you might encounter an ambiguity error, and you would need to explicitly specify which method to call using parent class names. The exact behavior depends on the language's rules for method resolution and may vary between programming languages.
 
 ________________________________________________________________
 ### Interview Questions for MySQL: 
