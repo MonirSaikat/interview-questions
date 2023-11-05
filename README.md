@@ -1,4 +1,4 @@
-****## Interview questions for PHP, Laravel & MySQL 🔥🔥🔥
+## Interview questions for PHP, Laravel & MySQL 🔥🔥🔥
 
 ________________________________________________________________
 ### Interview Questions for MySQL: 
