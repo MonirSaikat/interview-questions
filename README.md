@@ -87,7 +87,7 @@ InnoDB is a popular storage engine in MySQL known for its support of transaction
 
 ##### 21: What is the difference between UNION and UNION ALL in MySQL?
 - `UNION` removes duplicate rows.
-- `UNION` ALL includes all rows, even duplicates
+- `UNION ALL` includes all rows, even duplicates
 
 ##### 22: What is a `timestamp` in MySQL?
 A `timestamp` in MySQL is a data type used to store date and time values with a time zone.
