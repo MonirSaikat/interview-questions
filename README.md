@@ -1,4 +1,4 @@
-## Interview questions for PHP, Laravel & MySQL 🔥🔥🔥
+****## Interview questions for PHP, Laravel & MySQL 🔥🔥🔥
 
 ________________________________________________________________
 ### Interview Questions for MySQL: 
@@ -324,7 +324,112 @@ Laravel provides built-in support for handling AJAX requests. You can use the Re
 ##### 33: What are macros in Laravel, and how do you define them?
 Macros in Laravel allow you to extend existing classes with additional methods. You can define them using the `macro` method provided by Laravel's Macroable trait.
 
+##### 34:What are the common tools used to send emails in Laravel?
+Common tools for sending emails in Laravel include the built-in mail driver, `SMTP`, and third-party services like `Mailgun` or `SendGrid`.
 
+
+##### 35: Explain validations in laravel?
+Validations in Laravel are rules and filters applied to user input to ensure it meets specific criteria, such as required fields, email format, and custom rules. Laravel provides a convenient way to define and enforce these rules in your application.
+
+
+##### 36: How to install laravel via composer ?
+To install Laravel via Composer, use the command: `composer create-project --prefer-dist laravel/laravel project-name`.
+
+
+##### 37: Explain Laravel’s service container?
+Laravel's service container is a tool for managing class dependencies and performing dependency injection. It automatically resolves and injects dependencies into your classes, facilitating better code organization and testability.
+
+##### 38: How to enable query log in Laravel?
+You can enable query log in Laravel by calling `DB::enableQueryLog()` before executing queries and then retrieve the logged queries using `DB::getQueryLog().`
+
+
+##### 39: How to use custom table in Laravel Model?
+In a Laravel Model, you can specify a custom table by setting the $table property to the desired table name. For example: `protected $table = 'custom_table'`;.
+
+
+##### 40: List types of relationships available in Laravel Eloquent?
+Laravel Eloquent supports relationships like `belongsTo`, `hasOne`, `hasMany`, `belongsToMany`, `morphTo`, and `morphMany`, among others.
+
+##### 41: How to clear cache in Laravel?
+You can clear the cache in Laravel using the `php artisan cache:clear` command.
+
+
+##### 42: What do you understand by Unit testing?
+Unit testing is a software testing technique in which individual components or units of code are tested in isolation to ensure they perform as expected. In Laravel, PHPUnit is often used for writing unit tests to validate the correctness of specific parts of the application.
+
+
+##### 43: Explain the Service container and its advantages.
+The Service container in Laravel is a powerful tool for managing class dependencies and performing dependency injection. Its advantages include facilitating cleaner, more maintainable code, improving testability, and enabling the resolution of dependencies automatically, making it easier to manage and extend your application.
+
+
+##### 44: What is the use of PHP compact function?
+The `compact` function in PHP is used to create an array from variables. In Laravel, it's often used to pass data to views by compacting variables into an array for use in Blade templates.
+
+
+##### 45: What do you understand by ORM?
+ORM stands for Object-Relational Mapping. It's a technique used to map database tables and records to objects in object-oriented programming languages, such as Laravel's Eloquent ORM. ORM simplifies database interactions by allowing developers to work with database data as if they were working with objects and classes.
+
+
+##### 46: How can someone change the default database type in Laravel?
+To change the default database type in Laravel, you can edit the `DB_CONNECTION` value in the .env file to the desired database type (e.g., `mysql`, `pgsql`, `sqlite`, etc.).
+
+
+##### 47: In which directory controllers are kept in Laravel?
+Controllers in Laravel are typically stored in the `app/Http/Controllers` directory.
+
+
+##### 48: What do you know about Closures in Laravel?
+Closures are anonymous functions used in Laravel to define small, reusable code blocks. They are often used in routes and middleware to perform specific actions at runtime.
+
+
+##### 49: How will you describe Fillable Attribute in a Laravel model?
+The `fillable` attribute in a Laravel model is an array that defines which model attributes can be mass-assigned when using methods like `create` or `update`. It helps protect against overwriting sensitive attributes.
+
+
+##### 50:How can we check the Laravel current version?
+You can check the current Laravel version installed in your project by running the command `php artisan --version` in the command line.
+
+
+##### 51: How can we get data between two dates using Query in Laravel?
+You can retrieve data between two dates in Laravel using the whereBetween method in a query. For example: `$data = Model::whereBetween('date_column', [$startDate, $endDate])->get();`.
+
+
+##### 52: How do you do soft deletes?
+In Laravel, soft deletes are implemented by adding the `use SoftDeletes` trait to your Eloquent model and defining the `deleted_at` column in the corresponding database table. Soft deleted records are not removed from the database but marked as deleted by setting the `deleted_at` timestamp. You can use the withTrashed and onlyTrashed methods to retrieve soft deleted records.
+
+
+##### 53: How do you generate migrations?
+You can generate a migration in Laravel using the artisan command `php artisan make:migration`. For example: `php artisan make:migration create_table_name`. This will create a new migration file in the `database/migrations` directory, where you can define the schema for your database table.
+
+
+##### 54: How do you mock a static facade methods?
+To mock a static facade method in Laravel for testing, you can use a package like Mockery or PHPUnit. You can create a mock object of the facade and define the expected behavior using these tools. Example:
+```php
+use Illuminate\Support\Facades\Facade;
+
+Facade::shouldReceive('staticFacadeMethod')->andReturn('mocked result');
+```
+##### 55: List some Aggregates methods provided by query builder in Laravel?
+Some aggregate methods provided by Laravel's query builder include `count()`, `sum()`, `avg()`, `min()`, and `max()`. These methods allow you to perform calculations on data columns in your database tables.
+
+
+##### 56: What is Closure in Laravel?
+In Laravel, a Closure is an anonymous function that can be used as a callback or as a parameter for various methods. Closures are often used in routes, middleware, and as callback functions for various operations within the application.
+
+
+##### 57: What is autoloading classes in PHP?
+Autoloading classes in PHP is the process of automatically including the necessary class files when they are needed, without requiring manual `require` or `include` statements. Autoloading simplifies code organization and makes it more maintainable.
+
+
+##### 58: What is CSRF protection and CSRF token?
+`CSRF` (Cross-Site Request Forgery) protection is a security feature in Laravel that helps prevent malicious websites from making unauthorized requests on behalf of a user. Laravel generates and verifies CSRF tokens to ensure that the requests are coming from trusted sources and not from potentially harmful external sites.
+
+##### 59: What template is used by the Laravel engine?
+Laravel uses the Blade template engine for building dynamic views. Blade provides a clean and expressive way to write templates with features like control structures, template inheritance, and more.
+
+
+##### 60: What is reverse Routing in Laravel?
+Reverse routing in Laravel allows you to generate URLs for named routes. Instead of hardcoding URLs in your application, you can use route names to generate URLs dynamically. This makes it easier to maintain and update URLs throughout your application, especially when routes change.
 
 
 
