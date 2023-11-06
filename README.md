@@ -680,8 +680,27 @@ Inheritance is when a class (subclass) can inherit properties and behaviors from
 
 
 ##### 105: What is Polymorphism?
-Polymorphism allows objects of different classes to be treated as objects of a common superclass, enabling flexibility and dynamic behavior.
+Polymorphism is one of the fundamental concepts in object oriented programming(OOP). It allows objects of different classes to be treated as objects of a common superclass. It enables you to write more flexible and extensible codes. 
 
+In PHP, Polymorphism is achieved through method overriding and interfaces. Let's look at an example:
+```php
+interface Animal {
+    public function speak();
+}
+
+class Dog implements Animal {
+    public function speak() {
+        echo 'Woof! Woof!';
+    }
+}
+
+class Cat implements Cat {
+    public function speak() {
+        echo 'Meow! Meow!';
+    }
+}
+```
+Now you create instances of these classes and use polymorphism to treat them as instances of the common interface `Animal`;
 
 ##### 106: How is the static keyword used in the program?
 The `static` keyword is used to define class-level variables and methods that belong to the class itself, not to instances of the class.
