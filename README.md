@@ -2,6 +2,50 @@
 
 ________________________________________________________________
 ### Interview Questions for PHP: 
+##### -2: What is method overriding in PHP ?
+Method overriding in PHP is a fundamental concept of OOP, allowing a subclass to provide it's own implementation for a method that is inherited from the parent class(superclass). Here are the rules for method overriding: 
+- Have to have same method name.
+- Have to have same number of parameters.
+- Have to have same types of parameters.
+
+Here is an example of how method overriding works in PHP:
+```php
+class Animal {
+    public function speak() {
+        echo 'Animal speak';
+    }
+}
+
+class Dog extends Animal {
+    /**
+     *  Here is the method overriding happens.
+     * You cannot have any params.
+     */
+    public function speak() {
+        echo 'Dog Barks';
+    }
+}
+
+```
+
+
+##### -1: What is method overloading in PHP ?
+Method overloading allows you define multiple methods with the same name in a class but with different parameter list. This means you can create different versions of a method that performs different actions depending on the parameters passed to the method. However, unlike other programming languages, PHP does not natively support method overloading by changing the number or types of arguments. Instead you can manually handle the parameters passed to method to handle the method overloading in PHP. 
+
+Here is an example:
+```php
+class Math {
+    public static function sum(int $a): int {
+        if(func_num_args() == 1) {
+            return $a;
+        } 
+
+        // or whatever you want to do with the parameters
+        return array_sum(func_get_args());
+    }
+}
+```
+
 ##### 0: What is PEAR in PHP?
 PEAR in PHP stands for "PHP Extension and Application Repository." It is a framework and distribution system for reusable PHP components, including libraries, packages, and extensions.
 
