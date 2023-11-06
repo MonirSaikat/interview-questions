@@ -676,8 +676,173 @@ The characteristics of object-oriented programming (OOP) include:
 - Object: An object is an instance of a class. It is a concrete realization of the class's blueprint, with its own data and behavior.
 
 #### 104: What do you mean by Inheritance?
-Inheritance is when a class (subclass) can inherit properties and behaviors from another class (superclass). It promotes code reusability and hierarchy.
+When a class inherits attributes or methods from another class, this is called inheritance.
 
+There are different types of inheritance in object oriented programming:
+- **Single Inheritance**: Single inheritance occurs when a class inherits from only one parent class. 
+- **Multiple Inheritance(Interface Inheritance)**: Multiple inheritance refers to a class inheriting properties and methods from more than one parent class. PHP does not supports multiple inheritance. But you can implements multiple interfaces or you can use traits for this purpose.
+- **Multi-level Inheritance**: Multiple inheritance involves a chain of classes where one class inherits from another, and subsequent classes inherits from those classes.
+- **Hierarchical Inheritance**: Hierarchical inheritance occurs when multiple child classes inherit from a single parent class. Each child class my have it's own unique properties and methods, but they share the common behavior from the parent class.
+- **Hybrid inheritance**: Hybrid inheritance is a combination of two or more types of inheritance within the same program. While PHP supports only single and interface | traits inheritance, combining them can lead to hybrid inheritance.
+
+Here are some examples: 
+```php
+
+/**
+ * Single Inheritance Example:
+ */
+class Vehicle
+{
+  protected $brand;
+  protected $model;
+  protected $year;
+
+  public function __construct($brand, $model, $year)
+  {
+    $this->brand = $brand;
+    $this->model = $model;
+    $this->year = $year;
+  }
+
+  public function getInfo()
+  {
+    return "Brand: $this->brand, Model: $this->model, Year: $this->year";
+  }
+}
+
+class Car extends Vehicle
+{
+  private $fuel_type;
+
+  public function __construct($brand, $model, $year, $fuel_type)
+  {
+    parent::__construct($brand, $model, $year);
+    $this->fuel_type = $fuel_type;
+  }
+
+  /**
+   * Method overriding
+   */
+  public function getInfo()
+  {
+    return parent::getInfo() . " Fuel type: $this->fuel_type";
+  }
+}
+
+$aVehicle = new Vehicle('Bus', 'No model', 2020);
+// echo $aVehicle->getInfo();
+
+// $car = new Car('Toyota', 'Carmy', 2022, 'Gasoline');
+// echo $car->getInfo();
+
+
+/**
+ * Multiple Inheritance: In PHP, you cannot use multiple inheritance. You have to use interfaces or traits to implement multi-inheritance in PHP.
+ */
+interface Communication
+{
+  public function makeCall($phone_number);
+  public function sendText($phone_number, $message);
+}
+
+interface Multimedia
+{
+  public function takePhoto();
+  public function playMusic($song);
+}
+
+class Smartphone implements Communication, Multimedia
+{
+  public function makeCall($phone_number)
+  {
+    echo "Calling $phone_number" . PHP_EOL;
+  }
+
+  public function sendText($phone_number, $message)
+  {
+    echo "Sending text to $phone_number: $message" . PHP_EOL;
+  }
+  public function takePhoto()
+  {
+    echo "Taking a photo" . PHP_EOL;
+  }
+  public function playMusic($song)
+  {
+    echo "Playing the song named: $song";
+  }
+}
+
+$iPhone = new SmartPhone();
+// $iPhone->sendText('01309900000', 'Hi there!');
+
+
+/**
+ * Multi-level inheritance: Multi-level inheritance is a concept where a chain of classes is created, where each child class inherits from it's parent, forming a hierarchy. Like: Your grand-father -> your-father -> you 😀 
+ */
+class Employee
+{
+  protected $name;
+  protected $employeeId;
+
+  public function __construct($name, $employeeId)
+  {
+    $this->name = $name;
+    $this->employeeId = $employeeId;
+  }
+
+  public function getDetails()
+  {
+    return "Employee ID: $this->employeeId, Name: $this->name";
+  }
+}
+
+class Manager extends Employee
+{
+  protected $department;
+
+  public function __construct($name, $employeeId, $department)
+  {
+    parent::__construct($name, $employeeId);
+    $this->department = $department;
+  }
+
+  /**
+   * Method overrides
+   */
+  public function getDetails()
+  {
+    return parent::getDetails() . ", Department: $this->department (Manager)";
+  }
+}
+
+class Director extends Manager
+{
+  protected $responsibilities;
+
+  public function __construct($name, $employeeId, $department, $responsibilities)
+  {
+    parent::__construct($name, $employeeId, $department);
+    $this->responsibilities = $responsibilities;
+  }
+
+  /**
+   * Method overrides
+   */
+  public function getDetails()
+  {
+    return parent::getDetails() . ", Responsibilities: $this->responsibilities (Director)";
+  }
+}
+
+$employee = new Employee("John Doe", "E123");
+$manager = new Manager("Alice Smith", "M456", "Marketing");
+$director = new Director("Eve Johnson", "D789", "Finance", "Financial strategy");
+
+// Calling methods
+echo "Employee Info: " . $employee->getDetails() . PHP_EOL;
+echo "Manager Info: " . $manager->getDetails() . PHP_EOL;
+echo "Director Info: " . $director->getDetails() . PHP_EOL;
+```
 
 #### 105: What is Polymorphism?
 Polymorphism is one of the fundamental concepts in object oriented programming(OOP). It allows objects of different classes to be treated as objects of a common superclass. It enables you to write more flexible and extensible codes. 
